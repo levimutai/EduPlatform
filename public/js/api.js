@@ -44,6 +44,10 @@ const api = {
         localStorage.setItem(TOKEN_STORAGE_KEY, token);
     },
 
+    getToken() {
+        return localStorage.getItem(TOKEN_STORAGE_KEY);
+    },
+
     clearToken() {
         localStorage.removeItem(TOKEN_STORAGE_KEY);
     }

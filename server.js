@@ -58,7 +58,17 @@ const apiLimiter = rateLimit({
 
 // Configure Helmet with relaxed settings for development
 app.use(helmet({
-    contentSecurityPolicy: false, // Allow inline scripts for development
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://cdnjs.cloudflare.com"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
+            fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
+            imgSrc: ["'self'", "data:", "https:"],
+            connectSrc: ["'self'"],
+            scriptSrcAttr: ["'unsafe-inline'"], // Allow inline event handlers
+        },
+    },
     crossOriginEmbedderPolicy: false
 }));
 app.use(morgan('dev'));

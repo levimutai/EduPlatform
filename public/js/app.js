@@ -1,31 +1,28 @@
-// Navigation functionality
+// General App Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.section');
+    // Attach event listeners for AI chat buttons (will work after auth)
+    setTimeout(() => {
+        const openAIChatBtn = document.getElementById('openAIChatBtn');
+        if (openAIChatBtn) {
+            openAIChatBtn.addEventListener('click', openAIChat);
+        }
 
-    // Navigation switching
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Remove active class from all links and sections
-            navLinks.forEach(l => l.classList.remove('active'));
-            sections.forEach(s => s.classList.remove('active'));
-            
-            // Add active class to clicked link
-            this.classList.add('active');
-            
-            // Show corresponding section
-            const sectionId = this.getAttribute('data-section');
-            document.getElementById(sectionId).classList.add('active');
-        });
-    });
+        const closeAIChatBtn = document.getElementById('closeAIChatBtn');
+        if (closeAIChatBtn) {
+            closeAIChatBtn.addEventListener('click', closeAIChat);
+        }
 
-    // Animate progress circles
-    animateProgressCircles();
-    
-    // Initialize dashboard stats animation
-    animateStats();
+        const sendChatBtn = document.getElementById('sendChatBtn');
+        if (sendChatBtn) {
+            sendChatBtn.addEventListener('click', sendChatMessage);
+        }
+    }, 100);
+
+    // Animate progress circles when they appear
+    setTimeout(() => {
+        animateProgressCircles();
+        animateStats();
+    }, 500);
 });
 
 // AI Chat functionality
