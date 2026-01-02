@@ -1,0 +1,13 @@
+{
+  "name": "eduplatform-frontend",
+  "version": "1.0.0",
+  "description": "EduPlatform Frontend - Multi-tenant Architecture",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "dev": "live-server --port=3000 --watch=."
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

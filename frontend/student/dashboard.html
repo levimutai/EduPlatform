@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        /* Student-specific tablet-first overrides */
+        @media (min-width: 768px) {
+            .dashboard {
+                grid-template-columns: 200px 1fr;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .nav-item {
+                padding: 1rem 1.25rem;
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Large touch targets for tablet */
+        .nav-item {
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card {
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="header-title">My Learning</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info" id="userInfo"></div>
+                <button class="logout-btn" onclick="router.logout()">Logout</button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-section">
+                <h3>Learning</h3>
+                <a href="#" class="nav-item active">Dashboard</a>
+                <a href="#" class="nav-item">My Courses</a>
+                <a href="#" class="nav-item">Assignments</a>
+                <a href="#" class="nav-item">Grades</a>
+            </div>
+            <div class="nav-section">
+                <h3>Resources</h3>
+                <a href="#" class="nav-item">Library</a>
+                <a href="#" class="nav-item">Study Groups</a>
+                <a href="#" class="nav-item">Tutoring</a>
+            </div>
+            <div class="nav-section">
+                <h3>Social</h3>
+                <a href="#" class="nav-item">Messages</a>
+                <a href="#" class="nav-item">Calendar</a>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <main class="content">
+            <div class="content-header">
+                <h2 class="content-title">Welcome Back!</h2>
+                <p class="content-subtitle">Continue your learning journey</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 class="card-title">Current Courses</h3>
+                    <p>Access your enrolled courses and track progress.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Upcoming Assignments</h3>
+                    <p>View due dates and submit your work.</p>
+                </div>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3 class="card-title">My Grades</h3>
+                    <p>Check your academic performance and feedback.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Study Resources</h3>
+                    <p>Access learning materials and study guides.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Achievements</h3>
+                    <p>View your badges and learning milestones.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/router.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        document.getElementById('userInfo').innerHTML = `<strong>${user.name}</strong> (${user.role})`;
+    </script>
+</body>
+</html>

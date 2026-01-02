@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="header-title">Admin Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info" id="userInfo"></div>
+                <button class="logout-btn" onclick="router.logout()">Logout</button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-section">
+                <h3>System</h3>
+                <a href="#" class="nav-item active">Dashboard</a>
+                <a href="#" class="nav-item">Users</a>
+                <a href="#" class="nav-item">Schools</a>
+                <a href="#" class="nav-item">Settings</a>
+            </div>
+            <div class="nav-section">
+                <h3>Analytics</h3>
+                <a href="#" class="nav-item">Reports</a>
+                <a href="#" class="nav-item">Usage Stats</a>
+                <a href="#" class="nav-item">Performance</a>
+            </div>
+            <div class="nav-section">
+                <h3>Support</h3>
+                <a href="#" class="nav-item">Help Desk</a>
+                <a href="#" class="nav-item">System Logs</a>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <main class="content">
+            <div class="content-header">
+                <h2 class="content-title">System Overview</h2>
+                <p class="content-subtitle">Monitor and manage the learning platform</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3 class="card-title">User Management</h3>
+                    <p>Manage students, teachers, and administrators across all schools.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">School Administration</h3>
+                    <p>Configure school settings, branding, and institutional policies.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">System Analytics</h3>
+                    <p>View platform usage statistics and performance metrics.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Recent Activity</h3>
+                <p>System events and administrative actions will appear here.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/router.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        document.getElementById('userInfo').innerHTML = `<strong>${user.name}</strong> (${user.role})`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="header-title">Parent Portal</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info" id="userInfo"></div>
+                <button class="logout-btn" onclick="router.logout()">Logout</button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-section">
+                <h3>Children</h3>
+                <a href="#" class="nav-item active">Dashboard</a>
+                <a href="#" class="nav-item">My Children</a>
+                <a href="#" class="nav-item">Progress Reports</a>
+                <a href="#" class="nav-item">Attendance</a>
+            </div>
+            <div class="nav-section">
+                <h3>Academic</h3>
+                <a href="#" class="nav-item">Grades</a>
+                <a href="#" class="nav-item">Assignments</a>
+                <a href="#" class="nav-item">Schedule</a>
+            </div>
+            <div class="nav-section">
+                <h3>Communication</h3>
+                <a href="#" class="nav-item">Messages</a>
+                <a href="#" class="nav-item">Teacher Meetings</a>
+                <a href="#" class="nav-item">School Events</a>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <main class="content">
+            <div class="content-header">
+                <h2 class="content-title">Family Overview</h2>
+                <p class="content-subtitle">Monitor your children's educational progress</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 class="card-title">Children's Progress</h3>
+                    <p>View academic performance and learning milestones for each child.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Recent Activity</h3>
+                    <p>Stay updated on assignments, grades, and school communications.</p>
+                </div>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3 class="card-title">Attendance Tracking</h3>
+                    <p>Monitor attendance records and absence notifications.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Teacher Communication</h3>
+                    <p>Connect with teachers and schedule parent conferences.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">School Calendar</h3>
+                    <p>View important dates, events, and school announcements.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/router.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        document.getElementById('userInfo').innerHTML = `<strong>${user.name}</strong> (${user.role})`;
+    </script>
+</body>
+</html>

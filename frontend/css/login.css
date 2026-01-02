@@ -1,0 +1,188 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Login container */
+.login-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* School header */
+.school-header {
+    padding: 2rem;
+    text-align: center;
+    background: var(--school-color, #4f46e5);
+    color: white;
+}
+
+.school-logo {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.school-info h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.school-info p {
+    opacity: 0.9;
+    font-size: 0.875rem;
+}
+
+/* Login card */
+.login-card {
+    padding: 2rem;
+}
+
+.login-card h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1f2937;
+}
+
+/* Form styles */
+.login-form {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--school-color, #4f46e5);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.btn-login {
+    width: 100%;
+    background: var(--school-color, #4f46e5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-login:hover {
+    background: var(--school-color-dark, #4338ca);
+}
+
+.btn-login:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Login help */
+.login-help {
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.login-help a {
+    color: var(--school-color, #4f46e5);
+    text-decoration: none;
+}
+
+.login-help a:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    margin: 0 0.5rem;
+    color: #9ca3af;
+}
+
+/* School color themes */
+.school-harvard {
+    --school-color: #a41034;
+    --school-color-dark: #8b0d2e;
+}
+
+.school-stanford {
+    --school-color: #8c1515;
+    --school-color-dark: #7a1212;
+}
+
+.school-mit {
+    --school-color: #750014;
+    --school-color-dark: #660012;
+}
+
+.school-berkeley {
+    --school-color: #003262;
+    --school-color-dark: #002a54;
+}
+
+.school-yale {
+    --school-color: #00356b;
+    --school-color-dark: #002e5d;
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+    
+    .school-header {
+        padding: 1.5rem;
+    }
+    
+    .school-info h1 {
+        font-size: 1.25rem;
+    }
+    
+    .login-card {
+        padding: 1.5rem;
+    }
+    
+    .login-card h2 {
+        font-size: 1.5rem;
+    }
+}

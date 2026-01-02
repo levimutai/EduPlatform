@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your School - Learning Platform</title>
+    <link rel="stylesheet" href="css/school-select.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav">
+            <div class="logo">
+                <h1>LearnHub</h1>
+            </div>
+            <button class="btn-back" onclick="window.location.href='landing.html'">← Back</button>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h2>Find Your School</h2>
+            <p class="subtitle">Search by name or enter your school code</p>
+
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="schoolSearch" placeholder="Search school name..." autocomplete="off">
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+                
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+                
+                <div class="code-section">
+                    <input type="text" id="schoolCode" placeholder="Enter school code (e.g., MIT2024)" maxlength="10">
+                    <button id="codeSubmit" class="btn-primary">Continue</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/router.js"></script>
+    <script src="js/school-select.js"></script>
+</body>
+</html>

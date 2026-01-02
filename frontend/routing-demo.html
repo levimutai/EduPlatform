@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routing Demo</title>
+    <style>
+        body { font-family: system-ui; padding: 2rem; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: #f8f9fa; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; }
+        .btn { background: #4f46e5; color: white; border: none; padding: 0.5rem 1rem; margin: 0.25rem; border-radius: 4px; cursor: pointer; }
+        .btn:hover { background: #4338ca; }
+        .status { padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+        .success { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+        .error { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+    </style>
+</head>
+<body>
+    <h1>Role-Based Routing Demo</h1>
+    
+    <div class="demo-section">
+        <h3>Current Status</h3>
+        <div id="status"></div>
+    </div>
+    
+    <div class="demo-section">
+        <h3>Test Navigation (will check permissions)</h3>
+        <button class="btn" onclick="router.navigate('admin/dashboard.html')">Admin Dashboard</button>
+        <button class="btn" onclick="router.navigate('teacher/dashboard.html')">Teacher Dashboard</button>
+        <button class="btn" onclick="router.navigate('student/dashboard.html')">Student Dashboard</button>
+        <button class="btn" onclick="router.navigate('parent/dashboard.html')">Parent Dashboard</button>
+    </div>
+    
+    <div class="demo-section">
+        <h3>Authentication</h3>
+        <button class="btn" onclick="router.logout()">Logout</button>
+        <button class="btn" onclick="window.location.href='login.html'">Go to Login</button>
+    </div>
+
+    <script src="js/router.js"></script>
+    <script>
+        function updateStatus() {
+            const user = router.getCurrentUser();
+            const statusEl = document.getElementById('status');
+            
+            if (user) {
+                statusEl.innerHTML = `
+                    <div class="success">
+                        <strong>Authenticated:</strong> ${user.name} (${user.role})<br>
+                        <strong>Can access:</strong> ${router.routes[user.role].join(', ')}
+                    </div>
+                `;
+            } else {
+                statusEl.innerHTML = `
+                    <div class="error">
+                        <strong>Not authenticated</strong> - Protected routes will redirect to login
+                    </div>
+                `;
+            }
+        }
+        
+        updateStatus();
+        
+        // Update status when user changes
+        setInterval(updateStatus, 1000);
+    </script>
+</body>
+</html>

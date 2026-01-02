@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="header-title">Teacher Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info" id="userInfo"></div>
+                <button class="logout-btn" onclick="router.logout()">Logout</button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-section">
+                <h3>Teaching</h3>
+                <a href="#" class="nav-item active">Dashboard</a>
+                <a href="#" class="nav-item">My Courses</a>
+                <a href="#" class="nav-item">Assignments</a>
+                <a href="#" class="nav-item">Gradebook</a>
+            </div>
+            <div class="nav-section">
+                <h3>Content</h3>
+                <a href="#" class="nav-item">Create Content</a>
+                <a href="#" class="nav-item">Resources</a>
+                <a href="#" class="nav-item">Media Library</a>
+            </div>
+            <div class="nav-section">
+                <h3>Communication</h3>
+                <a href="#" class="nav-item">Messages</a>
+                <a href="#" class="nav-item">Announcements</a>
+                <a href="#" class="nav-item">Parent Contact</a>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <main class="content">
+            <div class="content-header">
+                <h2 class="content-title">Teaching Overview</h2>
+                <p class="content-subtitle">Manage your courses and engage with students</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 class="card-title">Active Courses</h3>
+                    <p>View and manage your current course offerings and student enrollment.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Pending Assignments</h3>
+                    <p>Review submissions and provide feedback to students.</p>
+                </div>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3 class="card-title">Student Progress</h3>
+                    <p>Track individual and class performance metrics.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Content Creation</h3>
+                    <p>Create lessons, assignments, and educational resources.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Communication Hub</h3>
+                    <p>Connect with students, parents, and colleagues.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/router.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        document.getElementById('userInfo').innerHTML = `<strong>${user.name}</strong> (${user.role})`;
+    </script>
+</body>
+</html>
